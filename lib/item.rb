@@ -4,11 +4,15 @@ class Item
 
   def initialize(name)
     @name = name
-    @bids = Hash.new(0)
+    @bids = {}
   end
 
   def add_bid(attendee, amount)
-    @bids[attendee] += amount
+    if @bids[attendee].nil?
+      @bids[attendee] = amount
+    else
+      @bids[attendee] += amount
+    end 
   end
 
   def current_high_bid
