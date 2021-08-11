@@ -16,6 +16,14 @@ class Item
     @open_bidding = false
   end
 
+  def list_all_bidders
+    bidders = []
+    @bids.each do |attendee, amount|
+      bidders << attendee
+    end
+    bidders
+  end
+
   def current_high_bid
     all_bids = []
     @bids.each do |attendee, amount|

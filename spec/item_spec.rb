@@ -105,4 +105,23 @@ RSpec.describe Item do
 
     expect(item1.bids).to eq({attendee2 => 20, attendee1 => 22})
   end
+
+  it "lists all bidders" do
+    item1 = Item.new('Chalkware Piggy Bank')
+    item2 = Item.new('Bamboo Picture Frame')
+    item3 = Item.new('Homemade Chocolate Chip Cookies')
+    item4 = Item.new('2 Days Dogsitting')
+    item5 = Item.new('Forever Stamps')
+    attendee1 = Attendee.new(name: 'Megan', budget: '$50')
+    attendee2 = Attendee.new(name: 'Bob', budget: '$75')
+    attendee3 = Attendee.new(name: 'Mike', budget: '$100')
+    auction = Auction.new
+
+    item1.add_bid(attendee1, 22)
+    item1.add_bid(attendee2, 20)
+    item4.add_bid(attendee3, 50)
+    item3.add_bid(attendee2, 15)
+
+    expect(item1.list_all_bidders).to eq([attendee1, attendee2])
+  end
 end
