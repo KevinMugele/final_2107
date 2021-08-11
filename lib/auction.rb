@@ -17,13 +17,9 @@ class Auction
   end
 
   def unpopular_items
-    unpopular = []
-    @items.each do |item|
-      if item.bids.empty?
-        unpopular << item
-      end
+    @items.find_all do |item|
+      item.bids.empty?
     end
-    unpopular
   end
 
   def potential_revenue
@@ -59,7 +55,6 @@ class Auction
         end
       end
     end
-
     bidder_info
   end
 end
