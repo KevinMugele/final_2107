@@ -25,4 +25,14 @@ class Auction
     end
     unpopular
   end
+
+  def potential_revenue
+    @items.sum do |item|
+      if unpopular_items.include?(item)
+        0
+      else
+        item.current_high_bid
+      end
+    end
+  end
 end
