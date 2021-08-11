@@ -24,6 +24,5 @@ class Auction
       end
     end
     unpopular
-
   end
 end
