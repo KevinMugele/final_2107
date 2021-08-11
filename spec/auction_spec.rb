@@ -151,4 +151,14 @@ RSpec.describe Auction do
 
     expect(auction.date).to eq("11/08/2021")
   end
+
+  it "has a date for the auction" do
+    auction = Auction.new
+
+    allow(auction).to receive(:date).and_return('24/02/2020')
+
+    expect(auction.date).to eq("24/02/2020")
+  end
+
+
 end
