@@ -51,7 +51,7 @@ class Auction
   def bidder_info
     bidder_info = {}
     @items.each do |item|
-      item.bids.each do |attendee, amount|
+      item.list_all_bidders.each do |attendee|
         if bidder_info[attendee].nil?
           bidder_info[attendee] = {
             :budget => attendee.budget,
@@ -71,6 +71,7 @@ class Auction
         close[item] = "Not Sold"
       else
         close[item] = item.attendee_by_high_bid
+        #need to add code so it checks if they can afford it and so on
       end
     end
     close
