@@ -1,9 +1,16 @@
+require 'date'
+
 class Auction
 
-  attr_reader :items
+  attr_reader :items, :date
 
   def initialize
     @items = []
+    @date = get_todays_date
+  end
+
+  def get_todays_date
+    Date.today.strftime("%d/%m/%Y")
   end
 
   def add_item(item)

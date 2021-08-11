@@ -1,3 +1,4 @@
+require 'date'
 require './lib/item'
 require './lib/auction'
 require './lib/attendee'
@@ -143,5 +144,11 @@ RSpec.describe Auction do
       attendee2 => {:budget => 75, :items => [item1, item3]},
       attendee3 => {:budget => 100, :items => [item4]}
       })
+  end
+
+  it "has a date for the auction" do
+    auction = Auction.new
+
+    expect(auction.date).to eq("11/08/2021")
   end
 end
