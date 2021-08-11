@@ -45,4 +45,21 @@ class Auction
     end
     bidders.uniq
   end
+
+  def bidder_info
+    bidder_info = {}
+    @items.each do |item|
+      item.bids.each do |attendee, amount|
+        if bidder_info[attendee].nil?
+          bidder_info[attendee] = {
+            :budget => attendee.budget,
+            :items => [item]}
+        else
+          bidder_info[attendee][:items] << item
+        end
+      end
+    end
+
+    bidder_info
+  end
 end
