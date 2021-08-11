@@ -5,4 +5,8 @@ class Auction
   def initialize
     @items = []
   end
-end 
+
+  def add_item(item)
+    @items << item
+  end 
+end
