@@ -63,4 +63,16 @@ class Auction
     end
     bidder_info
   end
+
+  def close_auction
+    close = {}
+    @items.each do |item|
+      if unpopular_items.include?(item)
+        close[item] = "Not Sold"
+      else
+        close[item] = item.attendee_by_high_bid
+      end
+    end
+    close
+  end
 end

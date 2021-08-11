@@ -23,4 +23,11 @@ class Item
     end
     all_bids.max
   end
+
+  def attendee_by_high_bid
+    attendee =  @bids.max_by do |attendee, amount|
+      amount
+    end
+    attendee.first
+  end
 end
