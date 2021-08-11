@@ -85,5 +85,9 @@ RSpec.describe Auction do
     item3.add_bid(attendee2, 15)
 
     expect(auction.potential_revenue).to eq(87)
+
+    item5.add_bid(attendee2, 13)
+
+    expect(auction.potential_revenue).to eq(100)
   end
 end
