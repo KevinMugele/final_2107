@@ -53,9 +53,7 @@ class Auction
     @items.each do |item|
       item.list_all_bidders.each do |attendee|
         if bidder_info[attendee].nil?
-          bidder_info[attendee] = {
-            :budget => attendee.budget,
-            :items => [item]}
+          bidder_info[attendee] = {:budget => attendee.budget, :items => [item]}
         else
           bidder_info[attendee][:items] << item
         end

@@ -124,5 +124,4 @@ RSpec.describe Item do
 
     expect(item1.list_all_bidders).to eq([attendee1, attendee2])
   end
-
 end
